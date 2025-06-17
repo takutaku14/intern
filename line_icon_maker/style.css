@@ -1,0 +1,44 @@
+/* フォントと基本スタイルの設定 */
+body {
+    /* `Inter`を優先し、日本語環境では`Noto Sans JP`を使用するフォント設定 */
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+}
+
+/* ドラッグ＆ドロップエリアのスタイル */
+.drag-over {
+    /* ファイルがドラッグされている間のボーダー色 */
+    border-color: #3b82f6; /* 青色 */
+    /* ファイルがドラッグされている間の背景色 */
+    background-color: #eff6ff; /* 薄い青色 */
+}
+
+/* プレビューエリアの円形ガイドのスタイル */
+.preview-circle-guide {
+    /* 親要素(preview-container)を基準に絶対配置 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* border-radiusを非常に大きな値にすることで正円にする */
+    border-radius: 9999px;
+    /* box-shadowのトリックを使用して円の外側を半透明の黒で覆う。
+      - 影のオフセット(x, y)とぼかしを0に設定
+      - スプレッド半径を非常に大きな値(999px)に設定し、要素の外側に影を広げる
+      - これにより、円形の要素以外の部分が影で塗りつぶされる
+    */
+    box-shadow: 0 0 0 999px rgba(0,0,0,0.5);
+    /* この要素がクリックやマウスイベントを妨げないようにする */
+    pointer-events: none;
+}
+
+/* 位置調整エディタのカーソルスタイル */
+/* ドラッグ可能な状態を示すカーソル */
+#editor-canvas.cursor-grab {
+    cursor: grab;
+}
+
+/* ドラッグ中の状態を示すカーソル */
+#editor-canvas.cursor-grabbing {
+    cursor: grabbing;
+}
